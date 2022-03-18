@@ -1,5 +1,8 @@
 <?php
-class AmazonAutoLinks_ExampleTemplates_LightSlider_ResourceLoader {
+namespace AutoAmazonLinks\Templates\Examples\LightSlider;
+use AutoAmazonLinks\Templates\Examples\Registry;
+
+class ResourceLoader {
     
     private $___aSliderOptions = array(
         'test' => 'this is a test',
@@ -15,10 +18,8 @@ class AmazonAutoLinks_ExampleTemplates_LightSlider_ResourceLoader {
     );
     
     public function __construct() {
-        
         add_action( 'wp_enqueue_scripts', array( $this, 'replyToLoadJavaScript' ) );
         add_action( 'enqueue_embed_scripts', array( $this, 'replyToLoadJavaScript' ) );
-
     }
 
     /**
@@ -28,7 +29,7 @@ class AmazonAutoLinks_ExampleTemplates_LightSlider_ResourceLoader {
     public function replyToLoadJavaScript() {
 
         $_sDirName = str_replace(
-            AmazonAutoLinks_ExampleTemplates_Registry::$sDirPath, // search
+            Registry::$sDirPath, // search
             '', // replace
             dirname( __FILE__ ) // subject
         );
@@ -41,7 +42,7 @@ class AmazonAutoLinks_ExampleTemplates_LightSlider_ResourceLoader {
         $_sPath      = $_aFiles[ $_iDebugMode ];
         wp_enqueue_style( 
             'lightslider-css',     // handle id
-            AmazonAutoLinks_ExampleTemplates_Registry::getPluginURL( $_sPath ) // file url
+            Registry::getPluginURL( $_sPath ) // file url
         );
         
         $_aFiles     = array(
@@ -51,7 +52,7 @@ class AmazonAutoLinks_ExampleTemplates_LightSlider_ResourceLoader {
         $_sPath       = $_aFiles[ $_iDebugMode ];      
         wp_enqueue_script( 
             'lightslider',     // handle id
-            AmazonAutoLinks_ExampleTemplates_Registry::getPluginURL( $_sPath ),  // file url
+            Registry::getPluginURL( $_sPath ),  // file url
             array( 'jquery' ),   // dependencies
             '',     // version
             true    // in footer? yes
@@ -64,7 +65,7 @@ class AmazonAutoLinks_ExampleTemplates_LightSlider_ResourceLoader {
         $_sPath       = $_aFiles[ $_iDebugMode ];          
         wp_enqueue_script( 
             'lightslider_enabler',     // handle id
-            AmazonAutoLinks_ExampleTemplates_Registry::getPluginURL( $_sPath ), // script url
+            Registry::getPluginURL( $_sPath ), // script url
             array( 'lightslider' ),   // dependencies
             '',     // version
             true    // in footer? yes
@@ -73,19 +74,17 @@ class AmazonAutoLinks_ExampleTemplates_LightSlider_ResourceLoader {
             'lightslider_enabler',  // handle id - the above used enqueue handle id
             'lightslider_enabler',  // name of the data loaded in the script
             $this->___aSliderOptions // translation array
-        );                 
-        
+        );
         
     }    
     
 }
-new AmazonAutoLinks_ExampleTemplates_LightSlider_ResourceLoader;
+new ResourceLoader;
 
-
-class AmazonAutoLinks_ExampleTemplates_LightSlider_OutputFormats {
+class OutputFormats {
 
     public function __construct() {
-        $_oTemplateOption = AmazonAutoLinks_TemplateOption::getInstance();
+        $_oTemplateOption = \AmazonAutoLinks_TemplateOption::getInstance();
         $_sTemplateID     = $_oTemplateOption->getTemplateID( dirname( __FILE__ ) );
         add_filter( 'aal_filter_template_default_item_format_' . $_sTemplateID, array( $this, 'replyToGetDefaultItemFormat' ) );
     }
@@ -102,4 +101,4 @@ class AmazonAutoLinks_ExampleTemplates_LightSlider_OutputFormats {
     }
 
 }
-new AmazonAutoLinks_ExampleTemplates_LightSlider_OutputFormats;
+new OutputFormats;

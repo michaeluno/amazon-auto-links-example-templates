@@ -2,13 +2,14 @@
 /**
  *	Plugin Name:    Amazon Auto Links - Example Templates
  *	Plugin URI:     http://en.michaeluno.jp/amazon-auto-links
- *	Description:    Example Amazon Auto Links templates.
+ *	Description:    Example Auto Amazon Links templates.
  *	Author:         Michael Uno (miunosoft)
  *	Author URI:     http://michaeluno.jp
- *	Version:        1.0.0
+ *	Version:        2.0.0
  */
+namespace AutoAmazonLinks\Templates\Examples;
 
-class AmazonAutoLinks_ExampleTemplates_Registry {
+class Registry {
     static public $sFilePath = '';
     static public $sDirPath = '';
     static public function setUp( $sPluginFilePath ) {
@@ -29,9 +30,9 @@ class AmazonAutoLinks_ExampleTemplates_Registry {
          */
         static private $_sPluginURLCache;    
 }
-AmazonAutoLinks_ExampleTemplates_Registry::setUp( __FILE__ );
+Registry::setUp( __FILE__ );
 
-class AmazonAutoLinks_ExampleTemplates_Register {
+class Loader {
     
     public $sTemplateContainerDirPath = array();
     
@@ -55,4 +56,4 @@ class AmazonAutoLinks_ExampleTemplates_Register {
     
 }
 
-new AmazonAutoLinks_ExampleTemplates_Register( dirname( __FILE__ ) . '/template' );
+new Loader( dirname( __FILE__ ) . '/template' );

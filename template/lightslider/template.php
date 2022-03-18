@@ -1,10 +1,12 @@
-<?php
-/*
+<?php 
+namespace AutoAmazonLinks\Templates\Examples;
+
+/**
  * Available variables:
  * 
- * $aOptions   - the plugin options
- * $aProducts  - the fetched product links
- * $aArguments - the user defined arguments such as image size and count etc.
+ * @var array $aProducts                the fetched product data
+ * @var array $aArguments               the user defined arguments such as image size and count etc.
+ * @var \AmazonAutoLinks_Option $oOption the plugin option object
  */
 
 $_aStructure_Product = array(
@@ -22,11 +24,11 @@ $sClassAttributes_ProductsContainer .= empty( $aArguments[ '_labels' ] )
     ? '' 
     : ' amazon-label-' . implode( ' amazon-label-', $aArguments[ '_labels' ] );
 
-$_sWidth  = AmazonAutoLinks_PluginUtility::getDegree( 'width', $aArguments );
+$_sWidth  = \AmazonAutoLinks_PluginUtility::getDegree( 'width', $aArguments );
 $_sWidth  = $_sWidth
     ? "width: {$_sWidth};"
     : '';
-$_sHeight = AmazonAutoLinks_PluginUtility::getDegree( 'height', $aArguments );
+$_sHeight = \AmazonAutoLinks_PluginUtility::getDegree( 'height', $aArguments );
 $_sHeight = $_sHeight
     ? "height: {$_sHeight};"
     : '';

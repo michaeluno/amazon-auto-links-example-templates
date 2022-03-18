@@ -1,6 +1,6 @@
 <?php
 /**
- *	Plugin Name: Amazon Auto Links - Example Templates
+ *	Plugin Name: Auto Amazon Links - Example Templates
  *	Plugin URI:  http://en.michaeluno.jp/amazon-auto-links
  *	Description: Example Auto Amazon Links templates.
  *	Author:      Michael Uno (miunosoft)

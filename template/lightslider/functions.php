@@ -5,15 +5,15 @@ use AutoAmazonLinks\Templates\Examples\Registry;
 class ResourceLoader {
     
     private $___aSliderOptions = array(
-        'test' => 'this is a test',
-        'loop'  => true,
-        'slideMove' => 4,
-        'easing' => 'cubic-bezier(0.25, 0, 0.25, 1)',
-        'speed' => 600,
-        'pause' => 4000,
-        'auto' => true,
-        'item' => 1,
-        'pauseOnHover' => true,
+        'test'           => 'this is a test',
+        'loop'           => true,
+        'slideMove'      => 4,
+        'easing'         => 'cubic-bezier(0.25, 0, 0.25, 1)',
+        'speed'          => 600,
+        'pause'          => 4000,
+        'auto'           => true,
+        'item'           => 1,
+        'pauseOnHover'   => true,
         'adaptiveHeight' => false,
     );
     

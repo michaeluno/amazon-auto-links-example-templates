@@ -1,11 +1,11 @@
 <?php
 /**
- *	Plugin Name:    Amazon Auto Links - Example Templates
- *	Plugin URI:     http://en.michaeluno.jp/amazon-auto-links
- *	Description:    Example Auto Amazon Links templates.
- *	Author:         Michael Uno (miunosoft)
- *	Author URI:     http://michaeluno.jp
- *	Version:        2.0.0
+ *	Plugin Name: Amazon Auto Links - Example Templates
+ *	Plugin URI:  http://en.michaeluno.jp/amazon-auto-links
+ *	Description: Example Auto Amazon Links templates.
+ *	Author:      Michael Uno (miunosoft)
+ *	Author URI:  http://michaeluno.jp
+ *	Version:     2.0.0
  */
 namespace AutoAmazonLinks\Templates\Examples;
 
@@ -38,16 +38,13 @@ class Loader {
     
     public function __construct( $sTemplateContainerDirPath ) {
         $this->sTemplateContainerDirPath = $sTemplateContainerDirPath;
-        add_filter(
-            'aal_filter_template_container_directories',
-            array( $this, 'replyToAddTemplateContainerDirectory' )
-        );
+        add_filter( 'aal_filter_template_container_directories', array( $this, 'replyToAddTemplateContainerDirectory' ) );
     }
         /**
          * Add the template directory to the passed array.
-         * @param   array   $aDirPaths
-         * @callback    filter      aal_filter_template_directories
-         * @return      array
+         * @param    array          $aDirPaths
+         * @callback add_filter()   aal_filter_template_directories
+         * @return   array
          */
         public function replyToAddTemplateContainerDirectory( $aDirPaths ) {
             $aDirPaths[] = $this->sTemplateContainerDirPath;
@@ -55,5 +52,4 @@ class Loader {
         }            
     
 }
-
 new Loader( dirname( __FILE__ ) . '/template' );

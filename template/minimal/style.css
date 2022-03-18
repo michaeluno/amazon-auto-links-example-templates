@@ -13,7 +13,6 @@
 .amazon-products-minimal-container {    
     overflow-y: auto;	
 	overflow-x: hidden;
-    /* width: inherit; */
     width: 100%;
     padding-right: 1em;    
 }
@@ -263,9 +262,7 @@
 .amazon-products-minimal-container .amazon-prices .proper-price,
 .amazon-products-minimal-container .amazon-prices .offered-price
 {
-	/*font-size: small;*/
     display: inline-block;
-    /*vertical-align: middle;*/
 }
 
 /* Categories */
